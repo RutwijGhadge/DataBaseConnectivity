@@ -57,5 +57,4 @@ Disadvantages of JDBC :
  1. Hibernate is an ORM tool : its do the Object Relational Mapping provides you by Default.(with the help Annotations)
  Hibernate and JPA go hand in hand.
 
-
  */

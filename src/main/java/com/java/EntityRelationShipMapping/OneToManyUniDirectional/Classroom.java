@@ -1,4 +1,4 @@
-package com.java.EntityRelationShipMapping.OnetoManyUnidirectional;
+package com.java.EntityRelationShipMapping.OneToManyUniDirectional;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -1,4 +1,4 @@
-package com.java.EntityRelationShipMapping.OnetoOneBidirectional;
+package com.java.EntityRelationShipMapping.OneToOneBiDirectional;
 
 import jakarta.persistence.*;
 

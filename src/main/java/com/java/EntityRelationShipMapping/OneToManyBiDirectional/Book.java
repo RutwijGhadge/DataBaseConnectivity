@@ -1,4 +1,4 @@
-package com.java.EntityRelationShipMapping.OnetoManyBirectional;
+package com.java.EntityRelationShipMapping.OneToManyBiDirectional;
 import jakarta.persistence.*;
 
 @Entity(name = "demo-book")

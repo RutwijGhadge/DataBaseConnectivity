@@ -119,6 +119,36 @@ All endpoints accept query parameters — `name` and `department` — to insert 
 > 💡 Each endpoint corresponds to a different persistence technology implementation of the same CRUD operation. This helps visualize how the abstraction and code complexity evolve across JDBC, Hibernate, JPA, and Spring Data JPA.
 
 ---
+## 🧩 JPA Entity Relationship Mapping
+
+### 📘 Overview
+This module demonstrates **how JPA internally handles entity relationships** while creating database associations.
+
+It includes all six major relationship types between entities and shows how **foreign keys** and **join tables** are generated automatically.
+
+### 🧱 Relationships Covered
+
+| Relationship Type | Entities | Annotation Used | Description |
+|--------------------|-----------|----------------|--------------|
+| **One-to-One (Unidirectional)** | `User` → `UserProfile` | `@OneToOne` | `User` holds the foreign key referencing `UserProfile`. |
+| **One-to-One (Bidirectional)** | `Driver` ↔ `Licence` | `@OneToOne(mappedBy = "driver")` | `Licence` owns the relationship; both entities can access each other. |
+| **One-to-Many (Unidirectional)** | `School` → `Classroom` | `@OneToMany @JoinColumn(name = "school_id")` | `School` owns the relationship; the foreign key resides in `Classroom`. |
+| **One-to-Many (Bidirectional)** | `Author` ↔ `Book` | `@OneToMany(mappedBy = "author")` | `Book` holds the foreign key; `Author` maintains a mapped reference. |
+| **Many-to-Many (Unidirectional)** | `Course` → `Student` | `@ManyToMany` | A join table (e.g., `course_student`) connects both entities. |
+| **Many-to-Many (Bidirectional)** | `Actor` ↔ `Movie` | `@ManyToMany(mappedBy = "movies")` | A shared join table enables navigation from both sides. |
+
+### 🧠 Internal Mechanics
+
+- **`@OneToOne`** → Adds a foreign key in the owning entity’s table.  
+- **`@OneToMany` + `@JoinColumn`** → Adds a foreign key in the child table.  
+- **`@ManyToMany`** → Generates an intermediate join table containing both entity IDs.  
+- **`mappedBy`** → Indicates the inverse side; JPA does not create another join column for it.
+
+### 🔗 Code Reference
+View the implementation here:  
+👉 [Entity Relationship Mapping Module](https://github.com/RutwijGhadge/DataBaseConnectivity/tree/main/src/main/java/com/java/EntityRelationShipMapping)
+
+---
 
 ## 🏗️ Technologies Used
 - Java 17  
